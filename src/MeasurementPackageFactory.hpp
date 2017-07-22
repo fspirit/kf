@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <string>
 #include <iostream>
+#include <memory>
 
 #include "MeasurementPackage.hpp"
 #include "RadarMeasurement.hpp"

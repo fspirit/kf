@@ -10,6 +10,7 @@
 #define KalmanFilter_hpp
 
 #include <stdio.h>
+#include <memory>
 
 #include "Eigen/Dense"
 #include "MeasurementPackage.hpp"
