@@ -36,7 +36,7 @@ string CreateResponseMessage(float px, float py, VectorXd error)
 string WebSocketMessageHandler::ProcessMessageContent(string& content)
 {
     auto jsonContent = json::parse(content);
-    string eventType = jsonContent[0].get<std::string>();
+    string eventType = jsonContent[0].get<string>();
     
     string response;
     
@@ -51,7 +51,7 @@ string WebSocketMessageHandler::ProcessMessageContent(string& content)
         VectorXd gt = ReadGroundTruthValue(iss);
         rmseCalculator->AddGroundTruthValue(gt);
         
-        kalmanFilter->ProcessMeasurement(mp);
+        kalmanFilter->ProcessMeasurement(mp.Model, mp.Measurement);
                 
         VectorXd state = kalmanFilter->GetState();
         rmseCalculator->AddEstimation(state);
@@ -62,11 +62,11 @@ string WebSocketMessageHandler::ProcessMessageContent(string& content)
     return response;
 }
 
-string WebSocketMessageHandler::GetMessageContent(const std::string& message)
+string WebSocketMessageHandler::GetMessageContent(const string& message)
 {
     string content;
     
-    bool hasNullContent = (message.find("null") != std::string::npos);
+    bool hasNullContent = (message.find("null") != string::npos);
     if (hasNullContent)
         return content;
     
@@ -79,7 +79,7 @@ string WebSocketMessageHandler::GetMessageContent(const std::string& message)
     return content;
 }
 
-bool WebSocketMessageHandler::MessageHasExpectedPrefix(const std::string& message)
+bool WebSocketMessageHandler::MessageHasExpectedPrefix(const string& message)
 {
     // "42" at the start of the message means there's a websocket message event.
     //

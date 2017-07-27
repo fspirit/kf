@@ -7,8 +7,8 @@ add_definitions(-std=c++11)
 set(CXX_FLAGS "-Wall")
 set(CMAKE_CXX_FLAGS, "${CXX_FLAGS}")
 
-set(sources src/main.cpp src/KalmanFilter.cpp src/RMSECalculator.cpp src/MeasurementPackageFactory.cpp src/MeasurementPackage.cpp src/RadarMeasurement.cpp 
-	src/LaserMeasurement.cpp src/WebSocketMessageHandler.cpp src/KalmanFilter.hpp src/RMSECalculator.hpp src/MeasurementPackageFactory.hpp src/MeasurementPackage.hpp src/RadarMeasurement.hpp src/LaserMeasurement.hpp src/WebSocketMessageHandler.hpp)
+set(sources src/main.cpp src/KalmanFilterBase.cpp src/RMSECalculator.cpp src/MeasurementPackageFactory.cpp src/MeasurementModel.cpp src/RadarMeasurementModel.cpp src/Measurement.cpp src/ExtendedKalmanFilter.cpp
+    src/UnscentedKalmanFilter.cpp src/LaserMeasurementModel.cpp src/WebSocketMessageHandler.cpp src/KalmanFilterBase.hpp src/RMSECalculator.hpp src/MeasurementPackageFactory.hpp src/MeasurementModel.hpp src/RadarMeasurementModel.hpp src/LaserMeasurementModel.hpp src/WebSocketMessageHandler.hpp src/Measurement.hpp src/ExtendedKalmanFilter.hpp src/UnscentedKalmanFilter.hpp)
 
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin") 
@@ -19,8 +19,7 @@ link_directories(/usr/local/lib)
 link_directories(/usr/local/opt/openssl/lib)
 link_directories(/usr/local/Cellar/libuv/1.11.0/lib)
 
-endif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin") 
-
+endif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 
 add_executable(ExtendedKF ${sources})
 

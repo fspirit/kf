@@ -16,7 +16,7 @@
 #include "json.hpp"
 
 #include "RMSECalculator.hpp"
-#include "KalmanFilter.hpp"
+#include "ExtendedKalmanFilter.hpp"
 #include "MeasurementPackageFactory.hpp"
 
 using std::string;
@@ -24,7 +24,7 @@ using std::string;
 class WebSocketMessageHandler
 {
 public:
-    WebSocketMessageHandler(shared_ptr<KalmanFilterK> kalmanFilter,
+    WebSocketMessageHandler(shared_ptr<KalmanFilterBase> kalmanFilter,
                             shared_ptr<RMSECalculator> rmseCalculator,
                             shared_ptr<MeasurementPackageFactory> measurementPackageFactory) :
         kalmanFilter(kalmanFilter), rmseCalculator(rmseCalculator),
@@ -32,7 +32,7 @@ public:
     {}
     void HandleMessage(const string& message, uWS::WebSocket<uWS::SERVER>& ws);
 private:
-    shared_ptr<KalmanFilterK> kalmanFilter;
+    shared_ptr<KalmanFilterBase> kalmanFilter;
     shared_ptr<RMSECalculator> rmseCalculator;
     shared_ptr<MeasurementPackageFactory> measurementPackageFactory;
     

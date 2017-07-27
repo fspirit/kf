@@ -34,12 +34,15 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		4759AF811F1E352E00370920 /* KalmanFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4759AF7F1F1E352E00370920 /* KalmanFilter.cpp */; };
+		4728D4C51F27460A00A99A2F /* UnscentedKalmanFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4728D4C31F27460A00A99A2F /* UnscentedKalmanFilter.cpp */; };
+		4728D4C81F28853500A99A2F /* MeasurementModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4728D4C61F28853500A99A2F /* MeasurementModel.cpp */; };
+		4728D4CB1F2886B300A99A2F /* RadarMeasurementModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4728D4C91F2886B300A99A2F /* RadarMeasurementModel.cpp */; };
+		4728D4CE1F2889AD00A99A2F /* LaserMeasurementModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4728D4CC1F2889AD00A99A2F /* LaserMeasurementModel.cpp */; };
+		4728D4D11F28AFD400A99A2F /* Measurement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4728D4CF1F28AFD400A99A2F /* Measurement.cpp */; };
+		4728D4D41F28C8D600A99A2F /* KalmanFilterBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4728D4D21F28C8D600A99A2F /* KalmanFilterBase.cpp */; };
+		4759AF811F1E352E00370920 /* ExtendedKalmanFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4759AF7F1F1E352E00370920 /* ExtendedKalmanFilter.cpp */; };
 		4759AF841F1E3C3300370920 /* RMSECalculator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4759AF821F1E3C3300370920 /* RMSECalculator.cpp */; };
 		4759AF8A1F1F4C6D00370920 /* MeasurementPackageFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4759AF881F1F4C6D00370920 /* MeasurementPackageFactory.cpp */; };
-		4759AF8D1F1F51B700370920 /* MeasurementPackage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4759AF8B1F1F51B700370920 /* MeasurementPackage.cpp */; };
-		4759AF901F1F551900370920 /* RadarMeasurement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4759AF8E1F1F551900370920 /* RadarMeasurement.cpp */; };
-		4759AF931F1F7FCF00370920 /* LaserMeasurement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4759AF911F1F7FCF00370920 /* LaserMeasurement.cpp */; };
 		4759AF991F1F96B300370920 /* WebSocketMessageHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4759AF971F1F96B300370920 /* WebSocketMessageHandler.cpp */; };
 		6C55BD2079DB419CB90A018C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0AB75368578E40A793E081ED /* main.cpp */; };
 /* End PBXBuildFile section */
@@ -69,22 +72,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0AB75368578E40A793E081ED /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
+		0AB75368578E40A793E081ED /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; lineEnding = 0; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		219F9F3B1BE64BE7BF83A2B3 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		4759AF7F1F1E352E00370920 /* KalmanFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = KalmanFilter.cpp; path = src/KalmanFilter.cpp; sourceTree = "<group>"; };
-		4759AF801F1E352E00370920 /* KalmanFilter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = KalmanFilter.hpp; path = src/KalmanFilter.hpp; sourceTree = "<group>"; };
+		4728D4C31F27460A00A99A2F /* UnscentedKalmanFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UnscentedKalmanFilter.cpp; path = src/UnscentedKalmanFilter.cpp; sourceTree = "<group>"; };
+		4728D4C41F27460A00A99A2F /* UnscentedKalmanFilter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = UnscentedKalmanFilter.hpp; path = src/UnscentedKalmanFilter.hpp; sourceTree = "<group>"; };
+		4728D4C61F28853500A99A2F /* MeasurementModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MeasurementModel.cpp; path = src/MeasurementModel.cpp; sourceTree = "<group>"; };
+		4728D4C71F28853500A99A2F /* MeasurementModel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = MeasurementModel.hpp; path = src/MeasurementModel.hpp; sourceTree = "<group>"; };
+		4728D4C91F2886B300A99A2F /* RadarMeasurementModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RadarMeasurementModel.cpp; path = src/RadarMeasurementModel.cpp; sourceTree = "<group>"; };
+		4728D4CA1F2886B300A99A2F /* RadarMeasurementModel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RadarMeasurementModel.hpp; path = src/RadarMeasurementModel.hpp; sourceTree = "<group>"; };
+		4728D4CC1F2889AD00A99A2F /* LaserMeasurementModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LaserMeasurementModel.cpp; path = src/LaserMeasurementModel.cpp; sourceTree = "<group>"; };
+		4728D4CD1F2889AD00A99A2F /* LaserMeasurementModel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = LaserMeasurementModel.hpp; path = src/LaserMeasurementModel.hpp; sourceTree = "<group>"; };
+		4728D4CF1F28AFD400A99A2F /* Measurement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Measurement.cpp; path = src/Measurement.cpp; sourceTree = "<group>"; };
+		4728D4D01F28AFD400A99A2F /* Measurement.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Measurement.hpp; path = src/Measurement.hpp; sourceTree = "<group>"; };
+		4728D4D21F28C8D600A99A2F /* KalmanFilterBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = KalmanFilterBase.cpp; path = src/KalmanFilterBase.cpp; sourceTree = "<group>"; };
+		4728D4D31F28C8D600A99A2F /* KalmanFilterBase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = KalmanFilterBase.hpp; path = src/KalmanFilterBase.hpp; sourceTree = "<group>"; };
+		4759AF7F1F1E352E00370920 /* ExtendedKalmanFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; name = ExtendedKalmanFilter.cpp; path = src/ExtendedKalmanFilter.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		4759AF801F1E352E00370920 /* ExtendedKalmanFilter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = ExtendedKalmanFilter.hpp; path = src/ExtendedKalmanFilter.hpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		4759AF821F1E3C3300370920 /* RMSECalculator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RMSECalculator.cpp; path = src/RMSECalculator.cpp; sourceTree = "<group>"; };
 		4759AF831F1E3C3300370920 /* RMSECalculator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RMSECalculator.hpp; path = src/RMSECalculator.hpp; sourceTree = "<group>"; };
 		4759AF881F1F4C6D00370920 /* MeasurementPackageFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MeasurementPackageFactory.cpp; path = src/MeasurementPackageFactory.cpp; sourceTree = "<group>"; };
 		4759AF891F1F4C6D00370920 /* MeasurementPackageFactory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = MeasurementPackageFactory.hpp; path = src/MeasurementPackageFactory.hpp; sourceTree = "<group>"; };
-		4759AF8B1F1F51B700370920 /* MeasurementPackage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MeasurementPackage.cpp; path = src/MeasurementPackage.cpp; sourceTree = "<group>"; };
-		4759AF8C1F1F51B700370920 /* MeasurementPackage.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = MeasurementPackage.hpp; path = src/MeasurementPackage.hpp; sourceTree = "<group>"; };
-		4759AF8E1F1F551900370920 /* RadarMeasurement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RadarMeasurement.cpp; path = src/RadarMeasurement.cpp; sourceTree = "<group>"; };
-		4759AF8F1F1F551900370920 /* RadarMeasurement.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RadarMeasurement.hpp; path = src/RadarMeasurement.hpp; sourceTree = "<group>"; };
-		4759AF911F1F7FCF00370920 /* LaserMeasurement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LaserMeasurement.cpp; path = src/LaserMeasurement.cpp; sourceTree = "<group>"; };
-		4759AF921F1F7FCF00370920 /* LaserMeasurement.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = LaserMeasurement.hpp; path = src/LaserMeasurement.hpp; sourceTree = "<group>"; };
 		4759AF971F1F96B300370920 /* WebSocketMessageHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WebSocketMessageHandler.cpp; path = src/WebSocketMessageHandler.cpp; sourceTree = "<group>"; };
-		4759AF981F1F96B300370920 /* WebSocketMessageHandler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = WebSocketMessageHandler.hpp; path = src/WebSocketMessageHandler.hpp; sourceTree = "<group>"; };
+		4759AF981F1F96B300370920 /* WebSocketMessageHandler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; lineEnding = 0; name = WebSocketMessageHandler.hpp; path = src/WebSocketMessageHandler.hpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		C48F0F496F51424C9466CCA0 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
 		CA883B86B4F049AD93447141 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
 		DCB5E63264A04A69B174623A /* ExtendedKF */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = ExtendedKF; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,14 +122,17 @@
 		27AA30759C6A44F99B729F0A /* Source Files */ = {
 			isa = PBXGroup;
 			children = (
+				4728D4CC1F2889AD00A99A2F /* LaserMeasurementModel.cpp */,
+				4728D4C91F2886B300A99A2F /* RadarMeasurementModel.cpp */,
+				4728D4C61F28853500A99A2F /* MeasurementModel.cpp */,
+				4728D4C31F27460A00A99A2F /* UnscentedKalmanFilter.cpp */,
 				4759AF971F1F96B300370920 /* WebSocketMessageHandler.cpp */,
-				4759AF911F1F7FCF00370920 /* LaserMeasurement.cpp */,
-				4759AF8E1F1F551900370920 /* RadarMeasurement.cpp */,
-				4759AF8B1F1F51B700370920 /* MeasurementPackage.cpp */,
 				4759AF881F1F4C6D00370920 /* MeasurementPackageFactory.cpp */,
 				4759AF821F1E3C3300370920 /* RMSECalculator.cpp */,
-				4759AF7F1F1E352E00370920 /* KalmanFilter.cpp */,
+				4759AF7F1F1E352E00370920 /* ExtendedKalmanFilter.cpp */,
 				0AB75368578E40A793E081ED /* main.cpp */,
+				4728D4CF1F28AFD400A99A2F /* Measurement.cpp */,
+				4728D4D21F28C8D600A99A2F /* KalmanFilterBase.cpp */,
 			);
 			name = "Source Files";
 			sourceTree = "<group>";
@@ -147,13 +159,16 @@
 		8007FB7275D34905B2AC1B6B /* Header Files */ = {
 			isa = PBXGroup;
 			children = (
+				4728D4CD1F2889AD00A99A2F /* LaserMeasurementModel.hpp */,
+				4728D4CA1F2886B300A99A2F /* RadarMeasurementModel.hpp */,
+				4728D4C71F28853500A99A2F /* MeasurementModel.hpp */,
+				4728D4C41F27460A00A99A2F /* UnscentedKalmanFilter.hpp */,
 				4759AF981F1F96B300370920 /* WebSocketMessageHandler.hpp */,
-				4759AF921F1F7FCF00370920 /* LaserMeasurement.hpp */,
-				4759AF8F1F1F551900370920 /* RadarMeasurement.hpp */,
-				4759AF8C1F1F51B700370920 /* MeasurementPackage.hpp */,
 				4759AF891F1F4C6D00370920 /* MeasurementPackageFactory.hpp */,
 				4759AF831F1E3C3300370920 /* RMSECalculator.hpp */,
-				4759AF801F1E352E00370920 /* KalmanFilter.hpp */,
+				4759AF801F1E352E00370920 /* ExtendedKalmanFilter.hpp */,
+				4728D4D01F28AFD400A99A2F /* Measurement.hpp */,
+				4728D4D31F28C8D600A99A2F /* KalmanFilterBase.hpp */,
 			);
 			name = "Header Files";
 			sourceTree = "<group>";
@@ -274,12 +289,15 @@
 			files = (
 				4759AF8A1F1F4C6D00370920 /* MeasurementPackageFactory.cpp in Sources */,
 				4759AF841F1E3C3300370920 /* RMSECalculator.cpp in Sources */,
+				4728D4D41F28C8D600A99A2F /* KalmanFilterBase.cpp in Sources */,
+				4728D4D11F28AFD400A99A2F /* Measurement.cpp in Sources */,
+				4728D4C51F27460A00A99A2F /* UnscentedKalmanFilter.cpp in Sources */,
 				4759AF991F1F96B300370920 /* WebSocketMessageHandler.cpp in Sources */,
-				4759AF931F1F7FCF00370920 /* LaserMeasurement.cpp in Sources */,
-				4759AF8D1F1F51B700370920 /* MeasurementPackage.cpp in Sources */,
-				4759AF811F1E352E00370920 /* KalmanFilter.cpp in Sources */,
+				4728D4CE1F2889AD00A99A2F /* LaserMeasurementModel.cpp in Sources */,
+				4728D4CB1F2886B300A99A2F /* RadarMeasurementModel.cpp in Sources */,
+				4728D4C81F28853500A99A2F /* MeasurementModel.cpp in Sources */,
+				4759AF811F1E352E00370920 /* ExtendedKalmanFilter.cpp in Sources */,
 				6C55BD2079DB419CB90A018C /* main.cpp in Sources */,
-				4759AF901F1F551900370920 /* RadarMeasurement.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

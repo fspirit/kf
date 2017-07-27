@@ -8,7 +8,7 @@
 
 #include "MeasurementPackageFactory.hpp"
 
-shared_ptr<MeasurementPackage> MeasurementPackageFactory::CreatePackageFromStream(istringstream& stringStream)
+MeasurementPackage MeasurementPackageFactory::CreatePackageFromStream(istringstream& stringStream)
 {
     std::string sensor_type;
     stringStream >> sensor_type;
@@ -19,20 +19,22 @@ shared_ptr<MeasurementPackage> MeasurementPackageFactory::CreatePackageFromStrea
         return CreateRadarMeasurementPackage(stringStream);
 }
 
-shared_ptr<LaserMeasurement> MeasurementPackageFactory::CreateLaserMeasurementPackage(istringstream& stringStream)
+MeasurementPackage MeasurementPackageFactory::CreateLaserMeasurementPackage(istringstream& stringStream)
 {
     float px, py;
     long long timestamp;
     stringStream >> px >> py >> timestamp;
     
-    return shared_ptr<LaserMeasurement>(new LaserMeasurement(px, py, timestamp));
+    return MeasurementPackage(laserMeasurementModel,
+                              Measurement(Eigen::Vector2d(px, py), timestamp));
 }
 
-shared_ptr<RadarMeasurement> MeasurementPackageFactory::CreateRadarMeasurementPackage(istringstream& stringStream)
+MeasurementPackage MeasurementPackageFactory::CreateRadarMeasurementPackage(istringstream& stringStream)
 {
     float ro, phi, ro_dot;
     long long timestamp;
     stringStream >> ro >> phi >> ro_dot >> timestamp;
     
-    return shared_ptr<RadarMeasurement>(new RadarMeasurement(ro, phi, ro_dot, timestamp));
+    return MeasurementPackage(radarMeasurementModel,
+                              Measurement(Eigen::Vector3d(ro, phi, ro_dot), timestamp));
 }
