@@ -25,6 +25,7 @@ class ExtendedKalmanFilter : public KalmanFilterBase
 public:
     ExtendedKalmanFilter(double aXNoise, double aYNoise):
         aXNoise(aXNoise), aYNoise(aYNoise) {};
+    virtual VectorXd GetStateAsCVSpacePoint();
     
 protected:
     virtual void Initialise(shared_ptr<MeasurementModel> model,

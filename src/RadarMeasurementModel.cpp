@@ -21,18 +21,6 @@ RadarMeasurementModel::RadarMeasurementModel(double roNoiseVar,
 
 MatrixXd RadarMeasurementModel::GetNoiseMatrix()
 {
-    //    MatrixXd R = MatrixXd(3, 3);
-    //    R << 0.09, 0, 0,
-    //        0, 0.0009, 0,
-    //        0, 0, 0.09;
-    
-    //radar measurement noise standard deviation radius in m
-    //double std_radr = 0.3;
-    //radar measurement noise standard deviation angle in rad
-    //double std_radphi = 0.0175;
-    //radar measurement noise standard deviation radius change in m/s
-    //double std_radrd = 0.1;
-    
     return R;
 }
 
@@ -81,9 +69,11 @@ VectorXd RadarMeasurementModel::CVSpaceToZSpace(const VectorXd &cvSpacePoint)
     if (fabs(px) > eps)
         phi = atan2(py, px);
     
-    double ro_dot =  0.0;
+    double ro_dot = 0.0;
     if (fabs(ro) > eps)
         ro_dot = (px * vx + py * vy) / ro;
+    
+    phi = NormaliseAngle(phi);
     
     return Eigen::Vector3d(ro, phi, ro_dot);
 }
@@ -114,7 +104,7 @@ VectorXd RadarMeasurementModel::ZSpaceToСTRVSpace(const VectorXd &zSpacePoint)
     float ro = zSpacePoint(0);
     float phi = zSpacePoint(1);
     
-    return Eigen::Vector4d(ro * cos(phi), ro * sin(phi), 0, 0);
+    return Eigen::Vector4d(ro * cos(phi), ro * sin(phi), 0, 0);    
 }
 
 

@@ -26,7 +26,7 @@ MeasurementPackage MeasurementPackageFactory::CreateLaserMeasurementPackage(istr
     stringStream >> px >> py >> timestamp;
     
     return MeasurementPackage(laserMeasurementModel,
-                              Measurement(Eigen::Vector2d(px, py), timestamp));
+                              Measurement(Eigen::Vector2d(px, py), timestamp, true));
 }
 
 MeasurementPackage MeasurementPackageFactory::CreateRadarMeasurementPackage(istringstream& stringStream)
@@ -36,5 +36,5 @@ MeasurementPackage MeasurementPackageFactory::CreateRadarMeasurementPackage(istr
     stringStream >> ro >> phi >> ro_dot >> timestamp;
     
     return MeasurementPackage(radarMeasurementModel,
-                              Measurement(Eigen::Vector3d(ro, phi, ro_dot), timestamp));
+                              Measurement(Eigen::Vector3d(ro, phi, ro_dot), timestamp, false));
 }

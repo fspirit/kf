@@ -16,10 +16,11 @@ using Eigen::MatrixXd;
 
 struct Measurement
 {
-    Measurement(VectorXd value, long long timestamp):
-        Value(value), Timestamp(timestamp) {}
+    Measurement(VectorXd value, long long timestamp, bool isLaser):
+        Value(value), Timestamp(timestamp), IsLaser(isLaser) {}
     VectorXd Value;
-    long long Timestamp;    
+    long long Timestamp;
+    bool IsLaser;
 };
 
 #endif /* Measurement_hpp */

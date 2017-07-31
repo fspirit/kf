@@ -23,15 +23,7 @@ void KalmanFilterBase::ProcessMeasurement(shared_ptr<MeasurementModel> model,
 void KalmanFilterBase::Initialise(shared_ptr<MeasurementModel> model,
                                       Measurement measurement)
 {    
-    covariance = MatrixXd(4, 4);
-    covariance << 1, 0, 0, 0,
-        0, 1, 0, 0,
-        0, 0, 1.5, 0,
-        0, 0, 0, 1.5;
-    
-    state = model->ZSpaceToСVSpace(measurement.Value);
     previousTimestamp = measurement.Timestamp;
-    
     isInitialised = true;
 }
 

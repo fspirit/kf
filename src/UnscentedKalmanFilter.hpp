@@ -11,6 +11,7 @@
 
 #include <memory>
 
+
 #include "Eigen/Dense"
 #include "MeasurementModel.hpp"
 #include "Measurement.hpp"
@@ -25,20 +26,30 @@ class UnscentedKalmanFilter : public KalmanFilterBase
 public:
     UnscentedKalmanFilter(double aNoiseVar, double yawDDNoiseVar):
         aNoiseVar(aNoiseVar), yawDDNoiseVar(yawDDNoiseVar) {}
+    virtual VectorXd GetStateAsCVSpacePoint();
+    
+    // Tests
+    void GenerateSigmaPoints();
+    void MoveSigmaPoints();
+    void PredictMeanAndCovarianceTest();
+    void PredictRadarMeasurementTest();
+    void UpdateStateTest();
 
 protected:
+    virtual void Initialise(shared_ptr<MeasurementModel> model,
+                            Measurement measurement);
     virtual void Predict(long long timestamp);
     virtual void Update(shared_ptr<MeasurementModel> model,
                         Measurement measurement);
     
 private:
-    MatrixXd sigmaPoints;
+    MatrixXd sigmaPoints_;
     double aNoiseVar;
     double yawDDNoiseVar;
     
     MatrixXd GenerateAugmentedSigmaPoints();
     VectorXd GetAugmentedState();
-    VectorXd GetAugmentedCovariance();
+    MatrixXd GetAugmentedCovariance();
     MatrixXd SampleAugmentedSigmaPoints(VectorXd& augmentedState,
                                         MatrixXd& augmentedCovariance);    
     MatrixXd GetPredictedSigmaPoints(MatrixXd& augmentedSigmaPoints, float dt);
@@ -56,7 +67,7 @@ private:
     MatrixXd CalculateCrossCorrelationMatrix(MatrixXd& zSigmaPoints,
                                              VectorXd& zSigmaPointsMean,
                                              shared_ptr<MeasurementModel> model);
-    VectorXd ProcessSpacePointsDiff(const VectorXd& pointA, VectorXd& pointB);
+    VectorXd ProcessSpacePointsSum(const VectorXd& pointA, const VectorXd& pointB);
     
 };
 

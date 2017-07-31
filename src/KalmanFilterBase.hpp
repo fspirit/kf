@@ -24,8 +24,8 @@ class KalmanFilterBase
 public:
     KalmanFilterBase(): isInitialised(false), previousTimestamp(0) {};
     void ProcessMeasurement(shared_ptr<MeasurementModel> model,
-                            Measurement measurement);
-    VectorXd GetState() { return state; };
+                            Measurement measurement);    
+    virtual VectorXd GetStateAsCVSpacePoint() = 0;
 protected:
     VectorXd state;
     MatrixXd covariance;

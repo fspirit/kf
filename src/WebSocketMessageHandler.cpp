@@ -48,12 +48,17 @@ string WebSocketMessageHandler::ProcessMessageContent(string& content)
         
         auto mp = measurementPackageFactory->CreatePackageFromStream(iss);
         
+        //if (!mp.Measurement.IsLaser)
+        //    return response;
+        
         VectorXd gt = ReadGroundTruthValue(iss);
+        
         rmseCalculator->AddGroundTruthValue(gt);
         
         kalmanFilter->ProcessMeasurement(mp.Model, mp.Measurement);
                 
-        VectorXd state = kalmanFilter->GetState();
+        VectorXd state = kalmanFilter->GetStateAsCVSpacePoint();
+        
         rmseCalculator->AddEstimation(state);
         VectorXd rmse = rmseCalculator->Calculate();
         
@@ -98,6 +103,11 @@ void WebSocketMessageHandler::HandleMessage(const string& message, uWS::WebSocke
             
             if (!response.empty())
                 ws.send(response.data(), response.length(), uWS::OpCode::TEXT);
+            else
+            {
+                string response = "42[\"manual\",{}]";
+                ws.send(response.data(), response.length(), uWS::OpCode::TEXT);
+            }
         }
         else
         {

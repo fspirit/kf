@@ -17,6 +17,14 @@ void ExtendedKalmanFilter::Initialise(shared_ptr<MeasurementModel> model,
         0, 0, 1, 0,
         0, 0, 0, 1;
     
+    covariance = MatrixXd(4, 4);
+    covariance << 1, 0, 0, 0,
+        0, 1, 0, 0,
+        0, 0, 1.5, 0,
+        0, 0, 0, 1.5;
+    
+    state = model->ZSpaceToСVSpace(measurement.Value);
+    
     KalmanFilterBase::Initialise(model, measurement);
 }
 
@@ -38,7 +46,7 @@ MatrixXd ExtendedKalmanFilter::CalculateMotionNoise(float dt)
 void ExtendedKalmanFilter::Update(shared_ptr<MeasurementModel> model,
                                   Measurement z)
 {    
-    VectorXd y = z.Value - model->CVSpaceToZSpace(state);
+    VectorXd y = model->GetZSpacePointsDiff(z.Value, model->CVSpaceToZSpace(state));
     MatrixXd H = model->GetHMatrix(state);
     MatrixXd Ht = H.transpose();
     MatrixXd S = H * covariance * Ht + model->GetNoiseMatrix();
@@ -68,4 +76,9 @@ void ExtendedKalmanFilter::Predict(long long timestamp)
     state = F * state;
     MatrixXd Ft = F.transpose();
     covariance = F * covariance * Ft + Q;
+}
+
+VectorXd ExtendedKalmanFilter::GetStateAsCVSpacePoint()
+{
+    return state;
 }
