@@ -23,7 +23,7 @@ void ExtendedKalmanFilter::Initialise(shared_ptr<MeasurementModel> model,
         0, 0, 1.5, 0,
         0, 0, 0, 1.5;
     
-    state = model->ZSpaceToСVSpace(measurement.Value);
+    state = model->ZSpaceToCVSpace(measurement.Value);
     
     KalmanFilterBase::Initialise(model, measurement);
 }

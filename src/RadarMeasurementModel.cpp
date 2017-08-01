@@ -91,7 +91,7 @@ VectorXd RadarMeasurementModel::CTRVSpaceToZSpace(const VectorXd& ctrvSpacePoint
     return CVSpaceToZSpace(Eigen::Vector4d(x, y, vx, vy));
 };
 
-VectorXd RadarMeasurementModel::ZSpaceToСVSpace(const VectorXd &zSpacePoint)
+VectorXd RadarMeasurementModel::ZSpaceToCVSpace(const VectorXd &zSpacePoint)
 {
     float ro = zSpacePoint(0);
     float phi = zSpacePoint(1);
@@ -99,7 +99,7 @@ VectorXd RadarMeasurementModel::ZSpaceToСVSpace(const VectorXd &zSpacePoint)
     return Eigen::Vector4d(ro * cos(phi), ro * sin(phi), 0, 0);
 }
 
-VectorXd RadarMeasurementModel::ZSpaceToСTRVSpace(const VectorXd &zSpacePoint)
+VectorXd RadarMeasurementModel::ZSpaceToCTRVSpace(const VectorXd &zSpacePoint)
 {
     float ro = zSpacePoint(0);
     float phi = zSpacePoint(1);

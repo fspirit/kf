@@ -18,8 +18,8 @@ public:
     virtual VectorXd GetZSpacePointsDiff(const VectorXd& pointA, const VectorXd& pointB);
     virtual MatrixXd GetHMatrix(const VectorXd& cvSpacePoint);
     virtual MatrixXd GetNoiseMatrix();
-    virtual VectorXd ZSpaceToСVSpace(const VectorXd& zSpacePoint);
-    virtual VectorXd ZSpaceToСTRVSpace(const VectorXd& zSpacePoint);
+    virtual VectorXd ZSpaceToCVSpace(const VectorXd& zSpacePoint);
+    virtual VectorXd ZSpaceToCTRVSpace(const VectorXd& zSpacePoint);
     virtual VectorXd CTRVSpaceToZSpace(const VectorXd& ctrvSpacePoint);
     virtual VectorXd CVSpaceToZSpace(const VectorXd& cvSpacePoint);
 private:

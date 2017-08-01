@@ -24,7 +24,7 @@ void UnscentedKalmanFilter::Initialise(shared_ptr<MeasurementModel> model,
 {
     covariance = MatrixXd::Identity(StateSize, StateSize);
     
-    state = model->ZSpaceToСTRVSpace(measurement.Value);
+    state = model->ZSpaceToCTRVSpace(measurement.Value);
     
     KalmanFilterBase::Initialise(model, measurement);
 }

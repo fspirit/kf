@@ -50,7 +50,7 @@ VectorXd LaserMeasurementModel::CTRVSpaceToZSpace(const VectorXd& ctrvSpacePoint
     return Eigen::Vector2d(x, y);
 };
 
-VectorXd LaserMeasurementModel::ZSpaceToСVSpace(const VectorXd &zSpacePoint)
+VectorXd LaserMeasurementModel::ZSpaceToCVSpace(const VectorXd &zSpacePoint)
 {
     float x = zSpacePoint(0);
     float y = zSpacePoint(1);
@@ -58,7 +58,7 @@ VectorXd LaserMeasurementModel::ZSpaceToСVSpace(const VectorXd &zSpacePoint)
     return Eigen::Vector4d(x, y, 0, 0);
 }
 
-VectorXd LaserMeasurementModel::ZSpaceToСTRVSpace(const VectorXd &zSpacePoint)
+VectorXd LaserMeasurementModel::ZSpaceToCTRVSpace(const VectorXd &zSpacePoint)
 {
     float x = zSpacePoint(0);
     float y = zSpacePoint(1);
